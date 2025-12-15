@@ -1,0 +1,14 @@
+{
+  "name": "whatsapp-messenger-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack WhatsApp messaging application",
+  "scripts": {
+    "backend": "npm start --prefix backend",
+    "frontend": "npm run dev --prefix my-app"
+  },
+  "workspaces": [
+    "backend",
+    "my-app"
+  ]
+}
