@@ -2,6 +2,10 @@
 const mongoose = require('mongoose');
 
 const MessageLogSchema = new mongoose.Schema({
+    fromNumber: {
+      type: String,
+      required: true
+    },
     contactNumber: {
         type: String,
         required: true,

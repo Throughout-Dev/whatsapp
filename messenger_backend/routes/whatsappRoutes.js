@@ -2,7 +2,7 @@
 const express = require('express');
 const multer = require('multer');
 const { celebrate, Joi, Segments } = require('celebrate');
-const { sendMessagesFromExcel, downloadReport } = require('../controllers/whatsappController.js');
+const { sendMessagesFromExcel, downloadReport, viewReport} = require('../controllers/whatsappController.js');
 
 const router = express.Router();
 
@@ -37,5 +37,5 @@ router.post(
 
 // Define the route for downloading the report
 router.get('/download-report', downloadReport);
-
+router.get("/reports/view", viewReport);
 module.exports = router;

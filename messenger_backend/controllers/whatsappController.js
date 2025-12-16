@@ -1,5 +1,6 @@
 // controllers/whatsappController.js
-const { getNumbersFromExcel } = require('../services/excelService.js');
+// const { getNumbersFromExcel } = require('../services/excelService.js');
+const { getNumbersFromExcel } = require('../services/excelService');
 const { sendBulkMessages, isClientReady } = require('../services/whatsappService.js');
 const MessageLog = require('../models/messageLog.js');
 const exceljs = require('exceljs');
@@ -83,5 +84,26 @@ const downloadReport = async (req, res, next) => {
     }
 };
 
-module.exports = { sendMessagesFromExcel, downloadReport };
+const viewReport = async (req, res) => {
+    console.log("===========================================")
+  try {
+    console.log('Inside middleware')
+    const reports = await MessageLog.find()
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      data: reports
+    });
+  } catch (error) {
+    console.error("View report error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch report"
+    });
+  }
+};
+
+module.exports = { sendMessagesFromExcel, downloadReport, viewReport };
+
 
