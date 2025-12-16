@@ -4,7 +4,7 @@ import QRCode from 'react-qr-code';
 import axios from 'axios';
 import { useRef } from "react";
 
-const SOCKET_URL = "http://localhost:3000"; // Your backend URL
+const SOCKET_URL = "https://wp-api.gapalyze.com"; // Your backend URL
 const socket = io(SOCKET_URL);
 
 const Home =()=>{
@@ -106,7 +106,7 @@ const Home =()=>{
   // this handles the logout function
   const handleLogout = async () => {
   try {
-    await axios.post('http://localhost:3000/logout');
+    await axios.post('https://wp-api.gapalyze.com/logout');
     setStatusMessage('Logged out. Please scan new QR code.');
     setQrCode('');
     setIsReady(false);

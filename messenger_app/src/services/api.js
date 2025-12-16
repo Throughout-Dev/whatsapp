@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Your backend is running on port 3000
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/api/whatsapp',
+    baseURL: 'https://wp-api.gapalyze.com/api/whatsapp',
 });
 
 /**
